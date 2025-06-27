@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanquero Agua Potable Quito</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            padding: 1em;
+        }
+        header img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        nav {
+            background-color: #333;
+            padding: 1em;
+            text-align: center;
+        }
+        nav a {
+            color: #00aaff;
+            margin: 0 1em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .tab-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2em;
+            flex-grow: 1;
+        }
+        .tab-pane {
+            display: none;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .tab-pane h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2em;
+            justify-items: center;
+            margin-top: 2em;
+        }
+        .service-item {
+            text-align: center;
+        }
+        .service-item img {
+            width: 100%;
+            max-width: 250px;
+            max-height: 250px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            background-color: #e9ecef;
+        }
+        .service-item p {
+            color: #007bff;
+            margin-top: 1em;
+            font-size: 0.9em;
+        }
+        .intro-text {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        .contact-section {
+            text-align: center;
+            margin-top: 2em;
+            padding-top: 2em;
+        }
+        .contact-section img {
+            max-width: 100px;
+            max-height: 100px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .contact-map {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 0;
+        }
+        .contact-details {
+            margin-top: 1em;
+        }
+        .contact-details p {
+            color: #333;
+            margin: 0.5em 0;
+        }
+        .contact-details a {
+            color: #00aaff;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+        .contact-buttons {
+            margin-top: 1em;
+        }
+        .contact-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact-buttons a.call-btn {
+            background-color: #00aaff;
+        }
+        .contact-buttons a.whatsapp-btn i {
+            margin-right: 5px;
+        }
+        .contact-buttons a.call-btn i {
+            margin-right: 5px;
+        }
+        .contact-buttons a:hover {
+            opacity: 0.8;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: auto;
+        }
+        .service-item img[alt="Control de polvo"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        @media (max-width: 1000px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-buttons a {
+                display: block;
+                margin: 10px auto;
+            }                   
+       }
+       .service-item img[alt="Llenado de piscinas"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .service-item img[alt="Llenado de cisternas"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .service-item img[alt="Riego de vías"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .service-item img[alt="Tanques estacionarios"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+            text-align: center;
+        }
+        .service-item img[alt="Hidratación"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .service-item img[alt="Llenado de tanques estacionarios"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .service-item img[alt="Control de polvo en vías"] {
+            width: 150px;
+            height: 125px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .service-item img[alt="Tanquero Agua Potable Quito"] {
+            width: 900px;
+            height: 150px;
+            border-radius: 50px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="service-item">
+            <img src="TanquerodeAgua.jpg" alt="Tanquero Agua Potable Quito" >
+        </div>    
+    </header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="tab-content">
+        <div id="inicio" class="tab-pane active">
+            <h2>Servicios</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <img src="Controldepolvos.png" alt="Llenado de piscinas" >
+                    <p>Llenamos piscinas de cualquier longitud con tanqueros de agua, ofreciendo un servicio rápido y eficiente para piscinas de todos los tamaños.</p>
+                </div>
+                <div class="service-item">
+                    <img src="Llenado de piscinas .png" alt="Control de polvo">
+                    <p>Ayudamos a controlar el polvo en obras o terrenos o vías.</p>
+                </div>
+                <div class="service-item">
+                    <img src="Llenadodecisternas.jpg" alt="Llenado de cisternas">
+                    <p>Ofrecemos llenado de cisternas garantizando un suministro constante de agua cuando lo necesites.</p>
+                </div>
+                <div class="service-item">
+                    <img src="Riegodevíasparalastrado.jpg" alt="Riego de vías">
+                    <p>Ofrecemos riego de caminos para lastreado de vías y reducir polvo en proyectos.</p>
+                </div>
+                <div class="service-item">
+                    <img src="Tanquesestacionarios.jpg" alt="Tanques estacionarios">
+                    <p>Ofrecemos llenado de tanques estacionarios, asegurando un abastecimiento confiable de agua en todo momento.</p>
+                </div>
+            </div>
+            <div class="contact-section">
+                <h2>Contactanos</h2>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/593995255717" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="tel:+593995255717" class="call-btn"><i class="fas fa-phone"></i></a>
+                    <a href="https://wa.me/593999246202" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="tel:+593999246202" class="call-btn"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+        <div id="servicios" class="tab-pane">
+            <h2>Servicios</h2>
+            <p class="intro-text">Ofrecemos<br>Servicio de Transporte de Agua Potable y especializamos en brindar servicios de llenado de piscinas, cisternas y tanques estacionarios, así como también en el control de polvo y riego de vías para lastreado. Contamos con todos los implementos necesarios: mangueras de cualquier longitud, bomba, cola de pato.<br>Trabajamos dentro y fuera de la ciudad.<br>Estamos gustosos de atenderle.</p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <img src="Tanquesestacionarios.jpg" alt="Llenado de tanques estacionarios">
+                    <p>Llenado de tanques estacionarios</p>
+                </div>
+                <div class="service-item">
+                    <img src="Llenado de piscinas .png" alt="Control de polvo en vías">
+                    <p>Control de polvo en vías</p>
+                </div>
+                <div class="service-item">
+                    <img src="Llenadodecisternas.jpg" alt="Llenado de cisternas">
+                    <p>Llenados de cisternas</p>
+                </div>
+                <div class="service-item">
+                    <img src="Controldepolvos.png" alt="Llenado de piscinas">
+                    <p>Llenado de piscinas</p>
+                </div>
+                <div class="service-item">
+                    <img src="Riegodevíasparalastrado.jpg" alt="Hidratación">
+                    <p>Hidratación</p>
+                </div>
+            </div>
+        </div>
+        <div id="contacto" class="tab-pane">
+            <h2>Contacto</h2>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7979.616349851066!2d-78.450865!3d-0.12921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d58f002b276bff%3A0xb1add8e3cf3fd850!2sPichincha%20y%20Tungurahua!5e0!3m2!1ses!2sus!4v1750964016605!5m2!1ses!2sus" width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="contact-details">
+                <p><strong>Tanquero de Agua Potable Quito</strong></p>
+                <p>Calle Pichincha y Tungurahua</p>
+            </div>
+            <div class="contact-buttons">
+                <a href="https://wa.me/593995255717" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="tel:+593995255717" class="call-btn"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/593999246202" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="tel:+593999246202" class="call-btn"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Tanquero Agua Potable Quito.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                let tabId = this.getAttribute('href').substring(1);
+                let tabPanes = document.getElementsByClassName("tab-pane");
+                for (let i = 0; i < tabPanes.length; i++) {
+                    tabPanes[i].classList.remove("active");
+                }
+                document.getElementById(tabId).classList.add("active");
+            });
+        });
+        // Set initial active tab
+        document.getElementById('inicio').classList.add("active");
+    </script>
+</body>
+</html>
